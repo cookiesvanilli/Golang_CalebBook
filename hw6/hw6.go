@@ -15,14 +15,13 @@ func main() {
 	task2()
 	task3()
 }
-func arrays(){
+func arrays() {
 	var x [5]int
 	x[4] = 100
 	fmt.Println(x)
 }
-
 func arrays2() {
-	x := [5]float64{
+	x := [5]float64 {
 		98,
 		93,
 		77,
@@ -42,7 +41,6 @@ func makeSlices() {
 	x := arr[0:5]
 	fmt.Println(x)
 }
-
 // function slices ---------------------->
 //append
 func appendSlices() {
@@ -121,7 +119,6 @@ func makeMapElem() {
 		fmt.Println(el["name"], el["state"])
 	}
 }
-
 //tasks ----------------->
 func task1() {
 	x := make([]int, 3, 9)

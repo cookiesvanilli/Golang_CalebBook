@@ -10,7 +10,7 @@ func main() {
 	close2()
 	generator()
 	recursion()
-	panick()
+	deferredCall()
 	panick2()
 	task1()
 	fmt.Println(" ---------------")
@@ -40,7 +40,6 @@ func f1() int {
 func f2() int {
 	return 1
 }
-
 func f() (x int, err int) {
 	return 5, 6
 }
@@ -97,11 +96,10 @@ func first() {
 func second() {
 	fmt.Println("2nd")
 }
-func panick() {
+func deferredCall() {
 	defer second()
 	first()
 }
-
 func panick2() {
 	defer func() {
 		str := recover()
@@ -178,7 +176,6 @@ func fib() {
 		fmt.Println(f())
 	}
 }
-
 //Что такое отложенный вызов, паника и восстановление?
 //Как восстановить функцию после паники?
 //В Go есть специальный оператор defer,
