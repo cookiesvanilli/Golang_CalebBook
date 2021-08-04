@@ -15,7 +15,7 @@ func main() {
 	task1()
 	fmt.Println(" ---------------")
 	task2()
-	max(12, 10)
+	task3()
 	task4()
 	fmt.Println("fibonacci ---------------")
 	fib()
@@ -119,22 +119,26 @@ func sum(array []int) int {
 	}
 	return result
 }
+//half------------------->
 func task2() {
-	number:= 35
-	half := number / 2
-	if (half % 2) == 0 {
-		fmt.Println(half, true)
-	} else {
-		fmt.Println(half, false)
-	}
+	fmt.Println(half(20))
+	fmt.Println(half(21))
 }
-func max(x, y int64) int64 {
-	if (x < y) {
-		fmt.Println(y)
-		return y
+func half(n int) (int, bool) {
+	return n / 2, n % 2 == 0
+}
+//max ------------------->
+func task3() {
+	fmt.Println (max(33,55,66,77,852,654,158))
+}
+func max (x ...int)int {
+	var y int
+	for _ , d := range x {
+		if d > y {
+			y = d
+		}
 	}
-	fmt.Println(x)
-	return x
+	return y
 }
 func makeOddGenerator() func() uint {
 	i := uint(0)
