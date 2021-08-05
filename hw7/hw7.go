@@ -18,7 +18,7 @@ func main() {
 	task3()
 	task4()
 	fmt.Println("fibonacci ---------------")
-	fib()
+	fibonacci(10)
 }
 func average(xs []float64) float64 {
 	total := 0.0
@@ -154,32 +154,16 @@ func task4() {
 	fmt.Println(nextOdd())
 	fmt.Println(nextOdd())
 }
-func fibonacci() func() int {
-	numbers := make(map[int]int)
-	n := 0
-	return func() int {
-		if n == 0 {
-			numbers[n] = 0
-			n++
-			return 0
-		}
-		if n == 1 {
-			numbers[n] = 1
-			n++
-			return 1
-		}
-		number := numbers[n-1] + numbers[n-2]
-		numbers[n] = number
-		n++
-		return number
-	}
+func fibonacci(x int) int {
+if x == 0 || x == 1 {
+	fmt.Println(x)
+	return  x
 }
-func fib() {
-	f := fibonacci()
-	for i := 0; i < 10; i++ {
-		fmt.Println(f())
-	}
+	fmt.Println(fibonacci(x-1) + fibonacci(x-2))
+return fibonacci(x-1) + fibonacci(x-2)
+
 }
+
 //Что такое отложенный вызов, паника и восстановление?
 //Как восстановить функцию после паники?
 //В Go есть специальный оператор defer,
