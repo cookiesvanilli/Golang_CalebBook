@@ -38,28 +38,28 @@ func startTime() {
 	var input string
 	fmt.Scanln(&input)
 }
-/*func main() {
-	go spinner (25 * time.Millisecond)
+func fib() {
+	go spinner(25 * time.Millisecond)
 	x := 45
-	fmt.Printf("Fibonacci(#{x}) = #{fibonacci(x)}")
-
+	fmt.Printf("Fibonacci(%d) = %d", x, fibonacci(x))
 }
+
 func spinner(duration time.Duration) {
 	for {
 		for _, v := range "-\\|/" {
-			fmt.Printf("#{v}\r")
+			fmt.Printf("%c\r", v)
 			time.Sleep(duration)
 		}
 	}
 }
+
 func fibonacci(x int) int {
 	if x == 0 || x == 1 {
-		fmt.Println(x)
-		return  x
+		return x
 	}
-	fmt.Println(fibonacci(x-1) + fibonacci(x-2))
-	return fibonacci(x-1) + fibonacci(x-2)
-}*/
+	return fibonacci(x - 1) + fibonacci(x - 2)
+}
+
 //channel
 func pinger(c chan string) {
 	for i := 0; ; i++ {
@@ -93,4 +93,5 @@ func main() {
 	//count()
 	//startTime()
 	channel()
+	fib()
 }
