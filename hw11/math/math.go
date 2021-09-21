@@ -1,6 +1,7 @@
 package math
 
-import "log"
+import "math"
+
 func Average(xs []float64) float64 {
 	if len(xs) != 0 {
 		total := float64(0)
@@ -14,6 +15,9 @@ func Average(xs []float64) float64 {
 }
 func Min(list []float64) float64 {
 	if len(list) == 0 {
+		return math.NaN()
+	}
+	if len(list) == 0 {
 		return 0
 	}
 	min := list[0]
@@ -24,7 +28,10 @@ func Min(list []float64) float64 {
 	}
 	return min
 }
-func Max(list []float64) float64 {
+func Max(list []float64) float64  {
+	if len(list) == 0 {
+		return math.NaN()
+	}
 	if len(list) == 0 {
 		return 0
 	}
@@ -33,9 +40,6 @@ func Max(list []float64) float64 {
 		if max < x {
 			max = x
 		}
-	}
-	if max != 15 {
-		log.Fatal("error")
 	}
 	return max
 }

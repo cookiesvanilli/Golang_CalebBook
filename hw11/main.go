@@ -1,7 +1,7 @@
 package main
 
 import (
-	"books/chapter11/math"
+	"books/arithmetic"
 	"fmt"
 )
 

@@ -1,7 +1,7 @@
 package math
 
 import (
-	"books/chapter11/math"
+	"math"
 	"testing"
 )
 
@@ -13,7 +13,7 @@ type testpair struct {
 }
 
 var tests = []testpair{
-	{ []float64{}, 0, 0,0},
+	{ []float64{}, 0, math.NaN(), math.NaN()},
 	{ []float64{1,2}, 1.5, 1,2 },
 	{ []float64{1,1,1,1,1,1}, 1, 1,1 },
 	{ []float64{-1,1}, 0,-1,1 },
@@ -33,7 +33,10 @@ func TestAverage(t *testing.T) {
 }
 func TestMin(t *testing.T) {
 	for _, pair := range tests {
-		v := math.Min(pair.values)
+		v := Min(pair.values)
+		if len(pair.values) == 0 && math.IsNaN(v) {
+			continue
+		}
 		if v != pair.min {
 			t.Error(
 				"For", pair.values,
@@ -45,7 +48,10 @@ func TestMin(t *testing.T) {
 }
 func TestMax(t *testing.T) {
 	for _, pair := range tests {
-		v := math.Max(pair.values)
+		v := Max(pair.values)
+		if len(pair.values) == 0 && math.IsNaN(v) {
+			continue
+		}
 		if v != pair.max {
 			t.Error(
 				"For", pair.values,
